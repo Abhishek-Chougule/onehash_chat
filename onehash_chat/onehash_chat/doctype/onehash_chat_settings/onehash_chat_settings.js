@@ -33,6 +33,10 @@ frappe.ui.form.on('OneHash Chat Settings', {
         frappe.db.set_global("ic_api_promo_dismissed", 1);
     });
 	},
+    before_save: function (frm) {
+        localStorage.clear();
+        window.location.reload(true);
+	},
 	fetch_contacts_now: function(frm){
 		frappe.call({
 			method: 'onehash_chat.api.fetch_contacts_from_chat',
